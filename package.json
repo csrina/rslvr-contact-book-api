@@ -17,6 +17,7 @@
   "homepage": "https://github.com/csrina/rslvr-contact-book#readme",
   "dependencies": {
     "@hapi/hapi": "^20.1.2",
-    "dotenv": "^9.0.1"
+    "dotenv": "^9.0.1",
+    "hapi-postgres-connection": "^7.0.0"
   }
 }
