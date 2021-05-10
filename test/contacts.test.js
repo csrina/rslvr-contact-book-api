@@ -1,9 +1,10 @@
 'use strict';
 
 const Lab = require('@hapi/lab');
-const { expect } = require('@hapi/code');
 const { afterEach, beforeEach, describe, it } = exports.lab = Lab.script();
 const { init } = require('../lib/server');
+
+const assert = require('chai').assert;
 
 describe('GET /', () => {
     let server;
@@ -21,8 +22,8 @@ describe('GET /', () => {
             method: 'get',
             url: '/'
         });
-        expect(res.statusCode).to.equal(200);
-        expect(res.result).to.equal("VM's resolver contact book project api");
+        assert.equal(res.statusCode, 200, 'status code should be 200');
+        assert.equal(res.result, "VM's resolver contact book project api", 'body is correct');
     });
 });
 
@@ -42,8 +43,8 @@ describe('GET /_api/v1.0/contacts should return 200, a count of at least 0, and 
             method: 'get',
             url: '/_api/v1.0/contacts'
         });
-        expect(res.statusCode).to.equal(200);
-        expect(res.result.count).to.be.at.least(0);
-        expect(res.result.data).to.be.an.array();
+        assert.equal(res.statusCode, 200, 'status code should be 200');
+        assert.isAtLeast(res.result.count, 0, 'count should at least be 0');
+        assert.typeOf(res.result.data, 'array', 'data is an array');
     });
 });

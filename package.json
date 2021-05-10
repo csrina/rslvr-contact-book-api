@@ -17,17 +17,20 @@
   },
   "homepage": "https://github.com/csrina/rslvr-contact-book#readme",
   "dependencies": {
+    "@hapi/code": "^8.0.3",
     "@hapi/hapi": "^19.2.0",
     "@hapi/lab": "^24.2.1",
+    "chai": "^4.3.4",
     "dotenv": "^9.0.1",
     "express": "^4.17.1",
     "hapi": "^18.1.0",
     "hapi-pg-promise": "^2.0.0",
     "hapi-pino": "^8.3.0",
     "hapi-postgres-connection": "^7.0.0",
+    "mocha": "^8.4.0",
     "pg": "^8.6.0",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^6.6.2",
-    "@hapi/code": "^8.0.3"
+    "request": "^2.88.2",
+    "sequelize": "^6.6.2"
   }
 }
