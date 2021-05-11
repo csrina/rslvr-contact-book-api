@@ -19,6 +19,7 @@
   "dependencies": {
     "@hapi/code": "^8.0.3",
     "@hapi/hapi": "^19.2.0",
+    "@hapi/joi": "^17.1.1",
     "@hapi/lab": "^24.2.1",
     "chai": "^4.3.4",
     "dotenv": "^9.0.1",

@@ -44,6 +44,51 @@ describe('GET /_api/v1.0/contacts should return 200, a count of at least 0, and 
             url: '/_api/v1.0/contacts'
         });
         assert.equal(res.statusCode, 200, 'status code should be 200');
+        assert.isAtLeast(res.result.count, 3, 'count should at least be 3');
+        assert.typeOf(res.result.data, 'array', 'data is an array');
+        
+    });
+});
+
+describe('GET /_api/v1.0/contacts?letter=j should return 200, a count of at least 0, and data array', () => {
+    let server;
+
+    beforeEach(async () => {
+        server = await init();
+    });
+
+    afterEach(async () => {
+        await server.stop();
+    });
+
+    it('responds with 200', async () => {
+        const res = await server.inject({
+            method: 'get',
+            url: '/_api/v1.0/contacts?letter=j'
+        });
+        assert.equal(res.statusCode, 200, 'status code should be 200');
+        assert.isAtLeast(res.result.count, 0, 'count should at least be 0');
+        assert.typeOf(res.result.data, 'array', 'data is an array');
+    });
+});
+
+describe('GET /_api/v1.0/contacts?group=1 should return 200, a count of at least 0, and data array', () => {
+    let server;
+
+    beforeEach(async () => {
+        server = await init();
+    });
+
+    afterEach(async () => {
+        await server.stop();
+    });
+
+    it('responds with 200', async () => {
+        const res = await server.inject({
+            method: 'get',
+            url: '/_api/v1.0/contacts?group=1'
+        });
+        assert.equal(res.statusCode, 200, 'status code should be 200');
         assert.isAtLeast(res.result.count, 0, 'count should at least be 0');
         assert.typeOf(res.result.data, 'array', 'data is an array');
     });
